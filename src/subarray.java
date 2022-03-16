@@ -11,7 +11,8 @@ public class subarray {
 
             sum=sum+A.get(i);
             if(sum==0)
-            {//no
+            {
+                //hellos
                 count++;
             }
 
