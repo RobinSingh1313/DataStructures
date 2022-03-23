@@ -22,6 +22,7 @@ public class InsertingBeginLinkedList {
         head= insertdataatFirst(head,80);
         head= insertdataatFirst(head,80);
         head= insertdataatFirst(head,80);
+       head=insertdataEnd(head,90);
 
         printLinkedList(head);
 
@@ -35,6 +36,31 @@ public class InsertingBeginLinkedList {
             cur=cur.next;
         }
         System.out.println("null");
+    }
+
+    public  static  Node deleteNode(Node head,int pos)
+    {
+
+        if (head==null)
+            return null;
+        else return head.next;
+
+    }
+    public  static  Node insertdataEnd(Node head,int data)
+    {
+        Node curr=new Node(data);
+        if (head==null)
+            return  curr;
+        Node currs=head;
+        while (currs.next!=null)
+        {
+
+
+            currs=currs.next;
+        }
+        currs .next=curr;
+
+        return  head;
     }
 
     private static Node insertdataatFirst(Node head,int datas) {
