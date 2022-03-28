@@ -1,26 +1,27 @@
 package sheetQuestion.Arrays.Sorting;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MergeSortClass {
 
-    public  static  int divide(int[] arr, int low, int high)
+    public  static  int divide(ArrayList<Integer>arr, int low, int high)
     {
         int inverse=0;
         int mid=low+(high-low)/2;
 
         if(low<high)
         {
-         inverse +=  divide(arr,low,mid);
-         inverse +=   divide(arr,mid+1,high);
-         inverse +=   merge(arr,low,mid,high);
+          divide(arr,low,mid);
+          divide(arr,mid+1,high);
+          merge(arr,low,mid,high);
 
 
         }
-        return  inverse;
+       return  inverse;
     }
 
-    public  static int merge(int arr[], int l, int m, int r)
+    public  static int merge(ArrayList<Integer> arr, int l, int m, int r)
     {
         int inverse=0;
         // Find sizes of two subarrays to be merged
@@ -28,14 +29,14 @@ public class MergeSortClass {
         int n2 = r - m;
 
         /* Create temp arrays */
-        int L[] = new int[n1];
-        int R[] = new int[n2];
+        ArrayList<Integer> L = new ArrayList<>();
+        ArrayList<Integer> R = new ArrayList<>();
 
         /*Copy data to temp arrays*/
         for (int i = 0; i < n1; ++i)
-            L[i] = arr[l + i];
+            L.add(i, arr.get(l + i));
         for (int j = 0; j < n2; ++j)
-            R[j] = arr[m + 1 + j];
+            R.add(j,arr.get(m + 1 + j));
 
         /* Merge the temp arrays */
 
@@ -45,12 +46,14 @@ public class MergeSortClass {
         // Initial index of merged subarray array
         int k = l;
         while (i < n1 && j < n2) {
-            if (L[i] <= R[j]) {
-                arr[k] = L[i];
+            if (L.get(i) <= R.get(j)) {
+                arr.set(k,L.get(i));
                 i++;
             }
             else {
-                arr[k] = R[j];
+                //arr[k] = R[j];
+                arr.set(k,R.get(j));
+
 
 
                 j++;
@@ -61,22 +64,29 @@ public class MergeSortClass {
 
         /* Copy remaining elements of L[] if any */
         while (i < n1) {
-            arr[k] = L[i];
+            arr.set(k,L.get(i));
             i++;
             k++;
         }
 
         /* Copy remaining elements of R[] if any */
         while (j < n2) {
-            arr[k] = R[j];
+            arr.set(k,R.get(j));
+
+
             j++;
             k++;
         }
         return  inverse;
     }
     public static void main(String[] args) {
-        int[] arr={2,3,4,5,6};
-       int ans= divide(arr,0,arr.length-1);
+        int[]  arr = { 9, 47, 17, 39, 35, 35, 20, 18, 15, 34, 11, 2, 45, 46, 15, 33, 47, 47, 10, 11, 27};
+        ArrayList<Integer> ars=new ArrayList<>();
+        for (int i=0;i<arr.length;i++)
+        {
+            ars.add(i,arr[0]);
+        }
+       int ans= divide(ars,0,arr.length-1);
         System.out.println(ans);
 
         System.out.println(Arrays.toString(arr));
