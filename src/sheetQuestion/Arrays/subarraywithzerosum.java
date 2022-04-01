@@ -37,6 +37,7 @@ public class subarraywithzerosum {
 
           sum+=k;
           hashmap.put(sum,hashmap.getOrDefault(sum,0)+1);
+
       }
 
         for (Map.Entry<Integer,Integer>e:hashmap.entrySet())
