@@ -1,9 +1,6 @@
 package BitManipulation;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class FindNonRepatingNumber {
     /*
@@ -71,9 +68,14 @@ public class FindNonRepatingNumber {
 
     private static void hashingApproach(int[] arr, int find_number) {
         HashMap<Integer,Integer> hashMap=new HashMap<>();
+       //for (int key: hashMap.keySet()
+
         List<Integer> lists=new ArrayList<>();
 
         int i=1;
+        HashSet<Character> hash=new HashSet<>();
+
+
         for(int k:arr)
         {
             hashMap.put(k, hashMap.getOrDefault(k,0)+1 );
@@ -88,6 +90,7 @@ public class FindNonRepatingNumber {
        }
         System.out.println(lists);
     }
+
 
     private static void bruteForceApproch(int[] arr, int find_number) {
         List<Integer> list=new ArrayList<>();

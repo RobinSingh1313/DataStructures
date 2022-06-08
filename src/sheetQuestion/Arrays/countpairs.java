@@ -1,9 +1,6 @@
 package sheetQuestion.Arrays;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
+import java.util.*;
 
 public class countpairs {
     public  static int getPairsCount(int[] arr, int n, int k) {
@@ -99,6 +96,14 @@ int asn= maxrepeatnum*2;
 
             }
             hashMap.put(i,hashMap.getOrDefault(i,0)+1);
+            Iterator<Integer> it=hashMap.keySet().iterator();
+            while (it.hasNext())
+            {
+                int key=it.next();
+                int val=hashMap.get(key);
+
+            }
+
 
 
 
